@@ -325,6 +325,7 @@ $5 = 11450
 ### Manipulating registers:
 https://community.st.com/message/178766-reading-io-register-values-with-command-line-
 https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/Debugging-Options.html
+
 Include additional debug information, such as all the macro definitions that can be used to inspect I/O registers:
 1. Edit you Makefile to add the `-g3` option to the compiler flags
 ```
@@ -416,12 +417,24 @@ https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/Optimize-Options.html
 Serial console:
 ---------------
 Retargetting the C printf function can be very usefull for debugging or 
+
+### Using semihosting:
+Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages. 
+Enable semihosting (see example `.gdbinit`)
+
 ### Using UART:
-On embedded devices, 
-messages 
+On embedded devices, messages
+
 Note: With GCC, make sure to add `syscalls.c`
 
 See [my GitHub gist][uart.c] to retarget printf to UART
+
+
+Check what USB devices are connected the serial port:
+```Shell
+$ ls /dev/tty.usbmodem*
+/dev/tty.usbmodem413
+```
 
 #### minicom
 ```Shell
@@ -433,9 +446,6 @@ $ minimum -D /dev/tty.usbmodem413 -b 921600
 $ screen /dev/tty.usbmodem413 921600
 ```
 
-### Using semihosting:
-Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages. 
-Enable semihosting (see example `.gdbinit`)
 
 ### Using ITM messages over SWO:
 with openOCD, ITM can be configured using the `tpiu` command.
@@ -459,16 +469,14 @@ Issues:
 When creating a brand new project (example NUCLEO-L476RG), C source files under Src/ are defined multiple times. 
 
 Debugging tips (Part 2?)
-mdw
-flash program
-flash mass_erase
-setting breakpoints
-viewing registers and SFRs
-  reg
-  mdw
-semihosting
-
-Linker
+- mdw
+- flash program
+- flash mass_erase
+- viewing registers and SFRs
+- reg
+- mdw
+- semihosting
+- Linker file
 
 
 [STM32CubeMX]:http://www.st.com/en/development-tools/stm32cubemx.html
