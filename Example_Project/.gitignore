@@ -1,6 +1,7 @@
 build/
 .mxproject
 mx.scratch
+tags
 .tags
 .gdb_history
 .gdbinit
