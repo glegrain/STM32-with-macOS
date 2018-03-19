@@ -72,6 +72,7 @@ C_SOURCES =  \
 ./Src/main.c \
 ./Src/stm32l4xx_hal_msp.c \
 ./Src/stm32l4xx_it.c \
+./Src/syscalls.c \
 ./Src/system_stm32l4xx.c \
 
 # ASM sources
@@ -141,6 +142,7 @@ CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
+CFLAGS += -g3
 endif
 
 
