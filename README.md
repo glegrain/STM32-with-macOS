@@ -57,7 +57,7 @@ GL NOTE: see https://github.com/glegrain/WarkaWater/ README.md for out-of-date i
 
 1 - Create a Project using CubeMX
 -------------------------------
-See Getting started from [st.com](http://www.st.com/resource/en/user_manual/dm00104712.pdf). In the Project Settings, under *Toolchain / IDE*, select *Makefile*. 
+See Getting started from [st.com](http://www.st.com/resource/en/user_manual/dm00104712.pdf). In the Project Settings, under *Toolchain / IDE*, select *Makefile*.
 
 ![Project Settings](images/Project_Settings.png)
 
@@ -92,7 +92,7 @@ SZ = $(BINPATH)/$(PREFIX)size
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 ```
-**Pro Tip**: To make the Makefile more portable between different users and environment, you can remove the `BINPATH` variable and edit the `CC`, `AS`, `CP`, `AR`, `SZ` as shown bellow. This way, make will look for binaries in your environment (*i.e.* executables located in your `$PATH` setting): 
+**Pro Tip**: To make the Makefile more portable between different users and environment, you can remove the `BINPATH` variable and edit the `CC`, `AS`, `CP`, `AR`, `SZ` as shown bellow. This way, make will look for binaries in your environment (*i.e.* executables located in your `$PATH` setting):
 ```Makefile
 #######################################
 # binaries
@@ -144,7 +144,7 @@ rm -fR .dep build
 2. Connect the USB cable
 3. Click "Connect"
 4. Go to the "Erasing & Programming" window
-5. 
+5.
 ![STM32CubeProgrammer programming](images/CubeProg_program.png)
 
 Note: Because STM32CubeProgrammer is still relatively new, chances are you will have to upgrade your ST-Link firmware.
@@ -160,7 +160,7 @@ Note: `*.hex` does not appear to work
 
 Otherwise, to program and debug run the gdb server with:
 ```Shell
-$ st-util 
+$ st-util
 ```
 
 ### Using openOCD:
@@ -183,12 +183,12 @@ Because you will be debugging a remote target device, gdb needs to connect to a 
 ### Start a gdb server
 Using texane stlink, to program and debug run the gdb server with:
 ```Shell
-$ st-util 
+$ st-util
 ```
 
 ### Launch gdb:
 
- To program and debug in a single command, I recommend to create a `.gdbinit` script 
+ To program and debug in a single command, I recommend to create a `.gdbinit` script
 
 Here is my `.gdbinit`:
 ```GDB
@@ -214,7 +214,7 @@ continue
 
 gdb will use `.gdbinit` file
 ```
-$ arm-none-eabi-gdb 
+$ arm-none-eabi-gdb
 ...
 Loading section .isr_vector, size 0x188 lma 0x8000000
 Loading section .text, size 0x1708 lma 0x8000188
@@ -229,7 +229,7 @@ Note: automatically using hardware breakpoints for read-only addresses.
 
 Breakpoint 1, main () at ./Src/main.c:83
 83    HAL_Init();
-(gdb) 
+(gdb)
 ```
 
 ### Program stepping/execution:
@@ -258,24 +258,28 @@ main () at ./Src/main.c:97
 
 Run until next breakpoint:
 ```GDB
-(gdb) continue 
+(gdb) continue
 Continuing.
 ```
 **Pro Tip**: for most command, you can simply type in the first letter. *e.g.*`n` for `next`.
+
 **Pro Tip**: Press enter to repeat the previous command. Very usefull to quickly step trough a program.
+
 **Pro Tip**: gdb also supports TAB completion. *e.g* `cont` + TAB will result in `continue`.
+
 **Pro Tip**: Use `control` + `c` to stop execution
 
 ### Setting a breakpoint:
 https://sourceware.org/gdb/onlinedocs/gdb/Breakpoints.html#Breakpoints
 http://www.unknownroad.com/rtfm/gdbtut/gdbbreak.html
+
 From there, you can add breakpoints using any of the following methods in the gdb command:
 
 Break on line number and run until breakpoint:
 ```GDB
 (gdb) break main.c:107
 Breakpoint 2 at 0x800208e: file ./Src/main.c, line 107.
-(gdb) continue 
+(gdb) continue
 Continuing.
 
 Breakpoint 2, main () at ./Src/main.c:107
@@ -291,7 +295,7 @@ Continuing.
 
 Breakpoint 2, SystemClock_Config () at ./Src/main.c:132
 132   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-(gdb) 
+(gdb)
 ```
 
 List breakpoints:
@@ -337,8 +341,8 @@ CFLAGS += -g3
 2. In gdb, type:
 ```GDB
 (gdb) p /x *GPIOA
-$4 = {MODER = 0xabfff7ff, OTYPER = 0x0, OSPEEDR = 0xc000000, PUPDR = 0x64000000, 
-  IDR = 0xc020, ODR = 0x20, BSRR = 0x0, LCKR = 0x0, AFR = {0x0, 0x0}, BRR = 0x0, 
+$4 = {MODER = 0xabfff7ff, OTYPER = 0x0, OSPEEDR = 0xc000000, PUPDR = 0x64000000,
+  IDR = 0xc020, ODR = 0x20, BSRR = 0x0, LCKR = 0x0, AFR = {0x0, 0x0}, BRR = 0x0,
   ASCR = 0x0}
 (gdb) set GPIOA->ODR ^= 0x20
 (gdb) p /x TIM3->CCMR1
@@ -360,7 +364,7 @@ Other
 Advanced GDB:
 Using gdb-dashboard (do not use tui mode):
 ```Shell
-$ arm-none-eabi-gdb-py 
+$ arm-none-eabi-gdb-py
 ```
 
 Where to go from here:
@@ -368,7 +372,7 @@ Where to go from here:
 Editing your Makefile
 ---------------------
 ### Adding source files:
-Any additional source file (`*.c` or `*.s`) that needs to be compiled should be added to the `C_SOURCES` or `ASM_SOURCES` variables inside the Makefile. 
+Any additional source file (`*.c` or `*.s`) that needs to be compiled should be added to the `C_SOURCES` or `ASM_SOURCES` variables inside the Makefile.
 ```Makefile
 ######################################
 # source
@@ -416,10 +420,10 @@ https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/Optimize-Options.html
 
 Serial console:
 ---------------
-Retargetting the C printf function can be very usefull for debugging or 
+Retargetting the C printf function can be very usefull for debugging or
 
 ### Using semihosting:
-Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages. 
+Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages.
 Enable semihosting (see example `.gdbinit`)
 
 ### Using UART:
@@ -436,15 +440,17 @@ $ ls /dev/tty.usbmodem*
 /dev/tty.usbmodem413
 ```
 
+#### screen
+```Shell
+$ screen /dev/tty.usbmodem413 921600
+```
+Note: To exit `screen`, press `control-A` then `control-\` and `y`.
+
 #### minicom
 ```Shell
 $ minimum -D /dev/tty.usbmodem413 -b 921600
 ```
 
-#### screen
-```Shell
-$ screen /dev/tty.usbmodem413 921600
-```
 
 
 ### Using ITM messages over SWO:
@@ -466,7 +472,7 @@ https://www.gnu.org/software/make/manual/make.html
 
 Issues:
 -------
-When creating a brand new project (example NUCLEO-L476RG), C source files under Src/ are defined multiple times. 
+When creating a brand new project (example NUCLEO-L476RG), C source files under Src/ are defined multiple times.
 
 Debugging tips (Part 2?)
 - mdw
