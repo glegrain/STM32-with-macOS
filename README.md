@@ -426,6 +426,8 @@ Retargetting the C printf function can be very usefull for debugging or
 Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages.
 Enable semihosting (see example `.gdbinit`)
 
+http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471m/pge1358787045051.html
+
 ### Using UART:
 On embedded devices, messages
 
