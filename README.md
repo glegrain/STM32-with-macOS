@@ -57,7 +57,11 @@ GL NOTE: see https://github.com/glegrain/WarkaWater/ README.md for out-of-date i
 
 1 - Create a Project using CubeMX
 -------------------------------
-See Getting started from [st.com](http://www.st.com/resource/en/user_manual/dm00104712.pdf). In the Project Settings, under *Toolchain / IDE*, select *Makefile*.
+See Getting started from [st.com](http://www.st.com/resource/en/user_manual/dm00104712.pdf).
+
+http://www.st.com/resource/en/user_manual/dm00105928.pdf
+
+In the Project Settings, under *Toolchain / IDE*, select *Makefile*.
 
 ![Project Settings](images/Project_Settings.png)
 
