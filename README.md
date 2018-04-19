@@ -18,7 +18,7 @@ Although this tutorial has been written with macOS in mind, similar steps can be
 - [OpenOCD] (>= 0.10.0) or [texane/stlink] for programming and running a GDB server
 
 
-1. Install Xcode Command Line Tools (CLT):
+1. Install Xcode Command Line Tools (CLT). This will install *Make* and other UNIX goodies:
 ```
 $ xcode-select --install
 ```
@@ -503,7 +503,11 @@ C_INCLUDES =  \
  #include "usbd_msc.h"
           ^~~~~~~~~~~~
 ```
-use `find . -name "usbd_msc.h"` to get the path and add it to Makefile
+use `find . -name "usbd_msc.h"` to get the path and add it to Makefile:
+```
+$ find . -name "usbd_msc.h"
+./Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h
+```
 
 ### Adding Preprocessor defines:
 https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/Preprocessor-Options.html
@@ -539,7 +543,7 @@ On embedded devices, `printf` statements can become very useful for debugging. R
 Semihosting is relatively easy to setup but it is one of the slowest methods for printing debug messages.
 Enable semihosting (see example `.gdbinit`)
 
-http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471m/pge1358787045051.html
+http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471m/pge1358787046598.html
 
 ### Using UART:
 
@@ -554,7 +558,7 @@ $ ls /dev/tty.usbmodem*
 /dev/tty.usbmodem413
 ```
 
-#### Option 1 - screen
+#### Option 1 - GNU Screen
 8 bit, no parity, one stop bit, translate input new line carriage return, newline performs a carriage return, local echo
 
 Optional `-` before SETTING indicates negation.
@@ -564,7 +568,7 @@ $ screen /dev/tty.usbmodem413 115200,cs8,-parenb,-cstop,inlcr,onlret,echo
 ```
 **Note**: To exit `screen`, press `control-A` then `control-k` and `y`.
 
-#### Option 2 - minicom
+#### Option 2 - Minicom
 ```Shell
 $ brew install minicom
 $ minicom -D /dev/tty.usbmodem413 -b 115200
@@ -574,12 +578,12 @@ $ minicom -D /dev/tty.usbmodem413 -b 115200
 
 ### Using ITM messages over SWO:
 With OpenOCD, ITM can be configured using the `tpiu` command.
-https://mcuoneclipse.com/2016/10/17/tutorial-using-single-wire-output-swo-with-arm-cortex-m-and-eclipse/
-http://blog.japaric.io/itm/
+- https://mcuoneclipse.com/2016/10/17/tutorial-using-single-wire-output-swo-with-arm-cortex-m-and-eclipse/
+- http://blog.japaric.io/itm/
 
 
 Other Resources:
-----------
+----------------
 https://developer.arm.com/open-source/gnu-toolchain/gnu-rm
 http://www.bravegnu.org/gnu-eprog/
 http://blog.japaric.io/quickstart/#hello-world
