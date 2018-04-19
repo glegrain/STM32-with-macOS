@@ -268,6 +268,7 @@ $ arm-none-eabi-gdb -tui
 
 ### Program stepping/execution:
 https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html
+
 Step over (step to next line of C code without going into functions):
 ```GDB
 (gdb) next
