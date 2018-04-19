@@ -526,6 +526,7 @@ OPT = -Os
 
 ### Understanding compiler options and flags:
 https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
+https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html#Option-Summary
 
 Serial console:
 ---------------
@@ -557,7 +558,7 @@ $ ls /dev/tty.usbmodem*
 #### screen
 8 bit, no parity, one stop bit, translate input new line carriage return, newline performs a carriage return, local echo
 
-Optional `-`` before SETTING indicates negation.
+Optional `-` before SETTING indicates negation.
 http://man7.org/linux/man-pages/man1/stty.1.html
 ```Shell
 $ screen /dev/tty.usbmodem413 115200,cs8,-parenb,-cstop,inlcr,onlret,echo
