@@ -530,7 +530,7 @@ OPT = -Os
 
 Serial console:
 ---------------
-`printf` statements can become very useful for debugging. Retargeting the C `printf` function is generally done is one of three ways:
+On embedded devices, `printf` statements can become very useful for debugging. Retargeting the C `printf` function is generally done is one of three ways:
 - through **semihosting** (no extra hardware required but slow)
 - through **UART interface** (most support, speed depends on baud rate)
 - through **ITM messages over SWO** (fastest but not always supported)
@@ -542,14 +542,13 @@ Enable semihosting (see example `.gdbinit`)
 http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471m/pge1358787045051.html
 
 ### Using UART:
-On embedded devices, messages
 
-Note: With GCC, add `syscalls.c`
+**Note**: With GCC, add `syscalls.c`
 
 See [my GitHub gist][uart.c] to retarget printf to UART
 
 
-Check what USB devices are connected the serial port:
+Check what USB devices are connected to the serial port:
 ```Shell
 $ ls /dev/tty.usbmodem*
 /dev/tty.usbmodem413
@@ -563,7 +562,7 @@ http://man7.org/linux/man-pages/man1/stty.1.html
 ```Shell
 $ screen /dev/tty.usbmodem413 115200,cs8,-parenb,-cstop,inlcr,onlret,echo
 ```
-Note: To exit `screen`, press `control-A` then `control-k` and `y`.
+**Note**: To exit `screen`, press `control-A` then `control-k` and `y`.
 
 #### minicom
 ```Shell
@@ -573,12 +572,12 @@ $ minicom -D /dev/tty.usbmodem413 -b 115200
 
 
 ### Using ITM messages over SWO:
-with OpenOCD, ITM can be configured using the `tpiu` command.
+With OpenOCD, ITM can be configured using the `tpiu` command.
 https://mcuoneclipse.com/2016/10/17/tutorial-using-single-wire-output-swo-with-arm-cortex-m-and-eclipse/
 http://blog.japaric.io/itm/
 
 
-Resources:
+Other Resources:
 ----------
 https://developer.arm.com/open-source/gnu-toolchain/gnu-rm
 http://www.bravegnu.org/gnu-eprog/
@@ -588,9 +587,11 @@ https://www.gnu.org/software/make/manual/make.html
 
 Issues:
 -------
-When creating a brand new project (example NUCLEO-L476RG), C source files under Src/ are defined multiple times.
+When creating a brand new project (example NUCLEO-L476RG), C source files under `Src/` are defined multiple times.
 
 Debugging tips (Part 2?)
+------------------------
+Please comment to request topics
 - mdw
 - flash program
 - flash mass_erase
