@@ -454,13 +454,13 @@ $ ls /dev/tty.usbmodem*
 Optional `-`` before SETTING indicates negation.
 http://man7.org/linux/man-pages/man1/stty.1.html
 ```Shell
-$ screen /dev/tty.usbmodem413 921600,cs8,-parenb,-cstop,inlcr,onlret,echo
+$ screen /dev/tty.usbmodem413 115200,cs8,-parenb,-cstop,inlcr,onlret,echo
 ```
 Note: To exit `screen`, press `control-A` then `control-k` and `y`.
 
 #### minicom
 ```Shell
-$ minicom -D /dev/tty.usbmodem413 -b 921600
+$ minicom -D /dev/tty.usbmodem413 -b 115200
 ```
 
 
