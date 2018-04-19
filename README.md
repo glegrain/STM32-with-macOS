@@ -525,8 +525,8 @@ OPT = -Os
 ```
 
 ### Understanding compiler options and flags:
-https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
-https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html#Option-Summary
+- https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
+- https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html#Option-Summary
 
 Serial console:
 ---------------
