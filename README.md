@@ -460,7 +460,7 @@ Note: To exit `screen`, press `control-A` then `control-k` and `y`.
 
 #### minicom
 ```Shell
-$ minimum -D /dev/tty.usbmodem413 -b 921600
+$ minicom -D /dev/tty.usbmodem413 -b 921600
 ```
 
 
