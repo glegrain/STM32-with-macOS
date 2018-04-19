@@ -554,7 +554,7 @@ $ ls /dev/tty.usbmodem*
 /dev/tty.usbmodem413
 ```
 
-#### screen
+#### Option 1 - screen
 8 bit, no parity, one stop bit, translate input new line carriage return, newline performs a carriage return, local echo
 
 Optional `-` before SETTING indicates negation.
@@ -564,8 +564,9 @@ $ screen /dev/tty.usbmodem413 115200,cs8,-parenb,-cstop,inlcr,onlret,echo
 ```
 **Note**: To exit `screen`, press `control-A` then `control-k` and `y`.
 
-#### minicom
+#### Option 2 - minicom
 ```Shell
+$ brew install minicom
 $ minicom -D /dev/tty.usbmodem413 -b 115200
 ```
 
