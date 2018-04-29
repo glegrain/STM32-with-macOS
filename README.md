@@ -147,7 +147,7 @@ rm -fR .dep build
 4 - Programming the board
 -------------------------
 
-### Option 1 - Using STM32CubeProg:
+### Option 1 - Using STM32CubeProgrammer GUI:
 1. Open **STM32CubeProgrammer**
 2. Connect a USB cable from the board to your computer
 3. Click "**Connect**"
@@ -162,6 +162,13 @@ rm -fR .dep build
 **Note**: Because STM32CubeProgrammer is still relatively new, chances are you will have to upgrade your ST-Link firmware.
 
 For more information, you can refer to the [STM32CubeProgrammer User Manual](http://www.st.com/resource/en/user_manual/dm00403500.pdf)
+
+### Option 1.1 - Using STM32CubeProgrammer CLI:
+```
+/Applications/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD -e all
+/Applications/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD mode=UR reset=HWrst -e all # hold reset button then release when connecting
+/Applications/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD -w build/Example_Project.elf
+```
 
 ### Option 2 - Using texane stlink:
 If all you want to do is program the board, then run any of the following commands:
