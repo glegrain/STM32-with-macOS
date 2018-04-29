@@ -164,6 +164,7 @@ rm -fR .dep build
 For more information, you can refer to the [STM32CubeProgrammer User Manual](http://www.st.com/resource/en/user_manual/dm00403500.pdf)
 
 ### Option 1.1 - Using STM32CubeProgrammer CLI:
+Below are some example commands to erase and program the target using STM32CubeProgrammer CLI:
 ```
 /Applications/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD -e all
 /Applications/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI -c port=SWD mode=UR reset=HWrst -e all # hold reset button then release when connecting
