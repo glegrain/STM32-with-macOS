@@ -72,9 +72,24 @@ If the above command does not work, you could try installing `java8`:
 $ brew tap caskroom/versions
 $ brew cask install java8
 ```
-And Java 8 will be installed at /Library/Java/JavaVirtualMachines/jdk1.8.xxx.jdk/. You can then use the full java path to use version 1.8 to launch the  STM32CubeProgrammer setup.
+And Java 8 will be installed at `/Library/Java/JavaVirtualMachines/jdk1.8.xxx.jdk/`. You can then use the full java path to use version 1.8 to launch the  STM32CubeProgrammer setup.
 ```
 $ /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin/java -jar SetupSTM32CubeProgrammer-1.0.0.exe
+```
+**Pro Tip**: Create a symbolic link to one of the binary directory searched by your `$PATH` variable:
+```
+$ ln -sv /Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin/STM32_Programmer_CLI /usr/local/bin/
+```
+Then, `STM32_Programmer_CLI` can be invoked diectly without having to specify the full path:
+```
+$ STM32_Programmer_CLI --help
+      -------------------------------------------------------------------
+                        STM32CubeProgrammer v1.0.0                  
+      -------------------------------------------------------------------
+
+
+Usage : 
+STM32_Programmer_CLI.exe [command_1] [Agruments_1][[command_2] [Agruments_2]...] 
 ```
 
 1 - Create a Project using CubeMX
