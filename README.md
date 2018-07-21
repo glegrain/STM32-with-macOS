@@ -65,7 +65,7 @@ $ java -jar SetupSTM32CubeMX-4.26.1.exe
 ```
 $ unzip en.stm32cubeprog.zip -d en.stm32cubeprog
 $ cd en.stm32cubeprog
-$ java -jar SetupSTM32CubeProgrammer-1.0.0.exe
+$ java -jar SetupSTM32CubeProgrammer-1.1.0.exe
 ```
 If the above command does not work, you could try installing `java8`:
 ```
@@ -82,14 +82,14 @@ $ ln -sv /Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32Cub
 ```
 Then, `STM32_Programmer_CLI` can be invoked diectly without having to specify the full path:
 ```
-$ STM32_Programmer_CLI --help
+$ STM32_Programmer_CLI
       -------------------------------------------------------------------
-                        STM32CubeProgrammer v1.0.0                  
+                        STM32CubeProgrammer v1.1.0
       -------------------------------------------------------------------
 
 
 Usage : 
-STM32_Programmer_CLI.exe [command_1] [Agruments_1][[command_2] [Agruments_2]...] 
+STM32_Programmer_CLI.exe [command_1] [Arguments_1][[command_2] [Arguments_2]...]
 ```
 
 1 - Create a Project using CubeMX
