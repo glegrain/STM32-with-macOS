@@ -52,6 +52,30 @@ $ st-info --version
 v1.4.0
 ```
 
+6. Install [STM32CubeMX]. After Downloading the installer, extract the archieve and try to run the macOS installer. If the macOS installer doesn't work, use the following command to manually launch the install. The procedure is described in the **STM32CubeMX User Manual** [UM1718].
+```
+$ cd ~/Downloads/
+$ unzip en.stm32cubemx.zip -d en.stm32cubemx
+$ cd en.stm32cubemx
+$ java -jar SetupSTM32CubeMX-4.26.1.exe
+```
+
+7. Install [STM32CubeProgrammer]. Similarly to CubeMX, if the installer doesn't work, use:
+
+```
+$ unzip en.stm32cubeprog.zip -d en.stm32cubeprog
+$ cd en.stm32cubeprog
+$ java -jar SetupSTM32CubeProgrammer-1.0.0.exe
+```
+If the above command does not work, you could try installing `java8`:
+```
+$ brew tap caskroom/versions
+$ brew cask install java8
+```
+And Java 8 will be installed at /Library/Java/JavaVirtualMachines/jdk1.8.xxx.jdk/. You can then use the full java path to use version 1.8 to launch the  STM32CubeProgrammer setup.
+```
+$ /Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin/java -jar SetupSTM32CubeProgrammer-1.0.0.exe
+```
 
 1 - Create a Project using CubeMX
 ---------------------------------
@@ -616,6 +640,7 @@ Please comment to request topics
 
 
 [STM32CubeMX]:http://www.st.com/en/development-tools/stm32cubemx.html
+[UM1718]:https://www.st.com/resource/en/user_manual/dm00104712.pdf
 [GNU ARM Embedded Toolchain]:https://developer.arm.com/open-source/gnu-toolchain/gnu-rm
 [STM32CubeProgrammer]:http://www.st.com/en/development-tools/stm32cubeprog.html
 [Homebrew]:https://brew.sh/
