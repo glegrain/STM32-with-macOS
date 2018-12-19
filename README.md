@@ -159,7 +159,7 @@ In a Terminal, navigate to your project's root directory (or Makefile location).
 $ cd ~/path/to/Example_Project
 $ make
 ```
-**Pro Tip**: for faster build time, `make` can be invoked using *parallel build* with the `-j` option:
+**Pro Tip**: for faster build time, `make` can be invoked using [parallel build](https://www.gnu.org/software/make/manual/make.html#Parallel) with the `-j` option:
 ```
 $ make -j 4
 ```
@@ -426,7 +426,7 @@ $2 = 0
 ```
 
 ### Manipulating registers:
-https://community.st.com/message/178766-reading-io-register-values-with-command-line-
+https://community.st.com/s/question/0D50X00009XkeAmSAJ/reading-io-register-values-with-command-line-gdb
 https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/Debugging-Options.html
 
 Include additional debug information, such as all the macro definitions that can be used to inspect I/O registers:
