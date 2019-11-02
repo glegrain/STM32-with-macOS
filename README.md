@@ -494,6 +494,19 @@ Breakpoint 1, main () at ./Src/main.c:83
 (gdb) tui enable
 ```
 
+### Show next assembly instructions:
+https://sourceware.org/gdb/onlinedocs/gdb/Machine-Code.html#Machine-Code
+```GDB
+(gdb) set disassemble-next-line on
+(gdb) show disassemble-next-line
+Debugger's willingness to use disassemble-next-line is o
+(gdb) next
+107         HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+=> 0x08000626 <main+186>:       20 21   movs    r1, #32
+   0x08000628 <main+188>:       4f f0 90 40     mov.w   r0, #1207959552 ; 0x48000000
+   0x0800062c <main+192>:       01 f0 92 fb     bl      0x8001d54 <HAL_GPIO_TogglePin>
+```
+
 
 ### Getting help:
 ```GDB
