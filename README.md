@@ -654,10 +654,11 @@ http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471m/pge13587870
 See [my GitHub gist][uart.c] to retarget printf to UART
 
 
-Check what USB devices are connected to the serial port:
+Check which USB devices are connected to the serial port.
+Also make sure all users have read / write access to the serial device:
 ```Shell
-$ ls /dev/tty.usbmodem*
-/dev/tty.usbmodem413
+$ ls -l /dev/tty.usbmodem*
+crw-rw-rw-  1 root  wheel    9,  26 Mar 27 13:20 /dev/tty.usbmodem413
 ```
 
 #### Option 1 - GNU Screen
